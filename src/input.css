@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .anchorHover {
+    @apply relative hover:opacity-70 duration-500 pb-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-white hover:after:w-full after:duration-500 text-[14px];
+  }
+  .common_button {
+    @apply h-[30px] w-[85px] border text-myWhite font-Oswald font-[500] text-[14px] leading-[24px] hover:bg-myBlue hover:border-myBlue duration-500;
+  }
+  .section_heading {
+    @apply relative max-w-[95px] mx-auto pb-1 font-Oswald font-[500] text-[24px] leading-[24px] text-myBlack after:content-[''] after:h-[1px] after:w-[50%] after:absolute after:bottom-0 after:left-0 after:bg-myBlue;
+  }
+  .common_paragraph {
+    @apply font-openSans font-[500] text-[13px] leading-[24px] text-myGray;
+  }
+  .portfolio_hover {
+    @apply absolute top-0 left-0 bg-[#000000]/60 w-full h-full flex justify-center items-center opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:border group-hover:border-blue-500 duration-500;
+  }
+  .portfolio_link {
+    @apply h-[40px] w-[40px] bg-myBlue_light text-white rounded-full flex items-center justify-center;
+  }
+  .footer_heading {
+    @apply font-Oswald font-[400] text-[16px] leading-[24px] text-myWhite;
+  }
+}

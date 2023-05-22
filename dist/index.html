@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../img/icon.png" type="icon/image" />
+    <title>Tailwind V3 - Installation & New Features (LWS)</title>
+    <!-- FONT AWESOME CDN START -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- GOOGLE FONTS START  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- OPEN SANS  -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- OSWALD  -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- GOOGLE FONTS END -->
+    <!-- FONT AWESOME CDN END -->
+    <link rel="stylesheet" href="./output.css" />
+    <style>
+      nav.sticky {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        top: 0;
+        animation-name: sticky;
+        animation-timing-function: linear;
+        animation-duration: 0.5s;
+        animation-delay: 0;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        z-index: 999;
+      }
+      @keyframes sticky {
+        0% {
+          top: -50px;
+        }
+        100% {
+          top: 0;
+        }
+      }
+
+      .move_top.show {
+        opacity: 1;
+        visibility: visible;
+        transition: all linear 0.5s;
+        bottom: 20px;
+        right: 20px;
+      }
+    </style>
+  </head>
+  <body class="box-border outline-none m-0 p-0 font-openSans">
+    <!-- ==================================
+               HEADER PART START 
+      ============================== -->
+    <header class="pb-[30px]">
+      <!-- WELCOME START  -->
+      <section id="welcome" class="bg-myBlue">
+        <div
+          class="container mx-auto text-myWhite flex flex-col md:flex-row justify-between h-[54px] md:h-[32px] items-center px-[10px]"
+        >
+          <div class="text">
+            <p class="font-openSans font-[400] text-[14px] leading-[24px]">
+              Welcome to Beatles
+            </p>
+          </div>
+          <div class="social_icons flex gap-[25px]">
+            <a href="#" class="hover:text-myBlack duration-500">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="#" class="hover:text-myBlack duration-500">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="#" class="hover:text-myBlack duration-500">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="hover:text-myBlack duration-500">
+              <i class="fa-brands fa-pinterest-p"></i>
+            </a>
+            <a href="#" class="hover:text-myBlack duration-500">
+              <i class="fa-brands fa-behance"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- WELCOME END -->
+      <!-- NAVIGATION START  -->
+      <nav class="h-[80px] bg-myWhite flex items-center">
+        <div class="container mx-auto px-[10px]">
+          <div class="nav_container flex justify-between items-center">
+            <div class="logo">
+              <a href="index.html">
+                <img src="../img/logo.png" alt="logo" />
+              </a>
+            </div>
+            <div class="menu items-center hidden md:flex">
+              <ul class="flex gap-[15px] text-myBlack">
+                <li>
+                  <a href="#" class="hover:text-myBlue duration-500">Home</a>
+                </li>
+                <li>
+                  <a href="#about" class="hover:text-myBlue duration-500"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a href="#services" class="hover:text-myBlue duration-500"
+                    >Gallery</a
+                  >
+                </li>
+                <li>
+                  <a href="#testimonial" class="hover:text-myBlue duration-500"
+                    >Testimonial</a
+                  >
+                </li>
+                <li>
+                  <a href="#portfolio" class="hover:text-myBlue duration-500"
+                    >Blogs</a
+                  >
+                </li>
+                <li>
+                  <a href="#footer" class="hover:text-myBlue duration-500"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="toggle_menu w-[80%] text-right relative block md:hidden"
+            >
+              <div
+                class="toggle_btns h-10 w-10 ms-auto hover:border rounded-full overflow-hidden"
+              >
+                <button type="button" class="toggle_btn_1 w-full h-full block">
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+                <button type="button" class="toggle_btn_2 w-full h-full hidden">
+                  <i class="fa-solid fa-xmark"></i>
+                </button>
+              </div>
+              <div
+                class="toggle_main_menu absolute bg-myBlue top-full right-[10%] w-full text-center p-5 rounded-lg hidden"
+              >
+                <ul class="flex flex-col gap-[15px] text-myWhite">
+                  <li>
+                    <a href="#" class="anchorHover">Home</a>
+                  </li>
+                  <li>
+                    <a href="#about" class="anchorHover">About Us</a>
+                  </li>
+                  <li>
+                    <a href="#services" class="anchorHover">Gallery</a>
+                  </li>
+                  <li>
+                    <a href="#testimonial" class="anchorHover">Testimonial</a>
+                  </li>
+                  <li>
+                    <a href="#portfolio" class="anchorHover">Blogs</a>
+                  </li>
+                  <li>
+                    <a href="#footer" class="anchorHover">Contact</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- NAVIGATION END -->
+      <!-- BANNER PART START  -->
+      <section
+        id="banner"
+        class="bg-[url('../img/banner.jpg')] bg-cover bg-no-repeat bg-center"
+      >
+        <div class="overlay bg-black/60 py-[88px]">
+          <div class="container mx-auto text-right px-3 md:px-0">
+            <span
+              class="font-Oswald font-[400] text-[30px] leading-[1] text-myWhite"
+              >Hi! We are</span
+            >
+            <h3
+              class="font-Oswald font-bold text-[40px] leading-[1] text-myWhite pt-[10px] pb-[30px]"
+            >
+              creative designer
+            </h3>
+            <p
+              class="font-openSans font-[400] text-[13px] leading-[24px] text-myWhite max-w-[470px] ms-auto"
+            >
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation.
+            </p>
+
+            <div class="banner_btn flex justify-end gap-5 mt-[30px]">
+              <button type="button" class="common_button">Hire Us</button>
+              <button type="button" class="common_button">Contact</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- BANNER PART END  -->
+    </header>
+    <!-- ==================================
+               HEADER PART END
+      ============================== -->
+    <!-- ==================================
+               ABOUT PART START
+      ============================== -->
+    <section id="about" class="py-[30px] scroll-mt-[130px]">
+      <div class="container mx-auto">
+        <div class="heading pb-[40px]">
+          <h3 class="section_heading">About Us</h3>
+        </div>
+        <div class="content grid md:grid-cols-2">
+          <div class="image mb-2 md:mb-0">
+            <picture>
+              <img src="../img/about_img.png" alt="image" class="mx-auto" />
+            </picture>
+          </div>
+          <div class="description flex flex-col justify-center gap-[40px]">
+            <p class="upper common_paragraph pl-2 md:pl-0">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor ididunt ut labore et dolore magna aliqua. Ut enim
+              ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat.
+            </p>
+            <p class="lower common_paragraph pl-2 md:pl-0">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officiaeserunt mollit
+              anim id est laborum. Sed ut perspiciatis unde omnis iste natus
+              error sit voluptatem accusantium doloremque laudantium.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ==================================
+               ABOUT PART END 
+      ============================== -->
+    <!-- ==================================
+               SERVICES PART END
+      ============================== -->
+    <section id="services" class="py-[30px] scroll-mt-[100px]">
+      <div class="container mx-auto">
+        <div class="heading">
+          <h3 class="section_heading max-w-[150px] mb-[70px]">Our Services</h3>
+        </div>
+        <div
+          class="our_services grid sm:grid-cols-3 gap-[60px] sm:gap-[20px] text-center p-2 sm:p-0"
+        >
+          <div class="item relative bg-myPink hover:shadow-lg duration-500">
+            <div class="image">
+              <picture>
+                <img
+                  src="../img/service_1.png"
+                  alt=""
+                  class="mx-auto border-[3px] rounded-full border-white absolute top-[-25%] left-[50%] translate-x-[-50%]"
+                />
+              </picture>
+            </div>
+            <div class="description pt-[50px]">
+              <h3 class="section_heading max-w-[100%] after:hidden pb-[20px]">
+                Graphic Design
+              </h3>
+              <p class="common_paragraph pb-[20px]">
+                Lorem ipsum dolor sit amet, consectetpisg elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+          <div class="item relative bg-myPink hover:shadow-lg duration-500">
+            <div class="image">
+              <picture>
+                <img
+                  src="../img/service_2.png"
+                  alt=""
+                  class="mx-auto border-[3px] rounded-full border-white absolute top-[-25%] left-[50%] translate-x-[-50%]"
+                />
+              </picture>
+            </div>
+            <div class="description pt-[50px]">
+              <h3 class="section_heading max-w-[100%] after:hidden pb-[20px]">
+                Graphic Design
+              </h3>
+              <p class="common_paragraph pb-[20px]">
+                Lorem ipsum dolor sit amet, consectetpisg elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+          <div class="item relative bg-myPink hover:shadow-lg duration-500">
+            <div class="image">
+              <picture>
+                <img
+                  src="../img/service_3.png"
+                  alt=""
+                  class="mx-auto border-[3px] rounded-full border-white absolute top-[-25%] left-[50%] translate-x-[-50%]"
+                />
+              </picture>
+            </div>
+            <div class="description pt-[50px]">
+              <h3 class="section_heading max-w-[100%] after:hidden pb-[20px]">
+                Graphic Design
+              </h3>
+              <p class="common_paragraph pb-[20px]">
+                Lorem ipsum dolor sit amet, consectetpisg elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ==================================
+               SERVICES PART START 
+      ============================== -->
+
+    <!-- ==================================
+               PORTFOLIO PART START 
+      ============================== -->
+    <section id="portfolio" class="py-[30px] scroll-mt-[150px]">
+      <div class="container mx-auto">
+        <div class="heading mb-[30px]">
+          <h3 class="section_heading max-w-[150px]">My Portfolio</h3>
+        </div>
+        <div
+          class="portfolio_container grid grid-cols-2 sm:grid-cols-4 gap-5 p-2 sm:p-0"
+        >
+          <!-- item start  -->
+          <div class="item space-y-5">
+            <div class="upper">
+              <div class="image relative group">
+                <img
+                  src="../img/portfolio_1.jpg"
+                  alt="image"
+                  class="mx-auto w-full h-full object-cover"
+                />
+                <div class="overlay portfolio_hover">
+                  <a href="#" class="portfolio_link">
+                    <i class="fa-solid fa-link"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="lower">
+              <div class="image relative group">
+                <img
+                  src="../img/portfolio_2.jpg"
+                  alt="image"
+                  class="mx-auto w-full h-full object-cover"
+                />
+                <div class="overlay portfolio_hover">
+                  <a href="#" class="portfolio_link">
+                    <i class="fa-solid fa-link"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- item end -->
+          <!-- item start  -->
+          <div class="item space-y-5">
+            <div class="upper">
+              <div class="image relative group">
+                <img
+                  src="../img/portfolio_3.jpg"
+                  alt="image"
+                  class="mx-auto w-full h-full object-cover"
+                />
+                <div class="overlay portfolio_hover">
+                  <a href="#" class="portfolio_link">
+                    <i class="fa-solid fa-link"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="lower">
+              <div class="image relative group">
+                <img
+                  src="../img/portfolio_4.jpg"
+                  alt="image"
+                  class="mx-auto w-full h-full object-cover"
+                />
+                <div class="overlay portfolio_hover">
+                  <a href="#" class="portfolio_link">
+                    <i class="fa-solid fa-link"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- item end -->
+          <!-- item start  -->
+          <div class="item space-y-5">
+            <div class="upper">
+              <div class="image relative group">
+                <img
+                  src="../img/portfolio_5.jpg"
+                  alt="image"
+                  class="mx-auto w-full h-full object-cover"
+                />
+                <div class="overlay portfolio_hover">
+                  <a href="#" class="portfolio_link">
+                    <i class="fa-solid fa-link"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="lower">
+              <div class="image relative group">
+                <img
+                  src="../img/portfolio_6.jpg"
+                  alt="image"
+                  class="mx-auto w-full h-full object-cover"
+                />
+                <div class="overlay portfolio_hover">
+                  <a href="#" class="portfolio_link">
+                    <i class="fa-solid fa-link"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- item end -->
+          <!-- item start  -->
+          <div class="item space-y-5">
+            <div class="upper">
+              <div class="image relative group">
+                <img
+                  src="../img/portfolio_7.jpg"
+                  alt="image"
+                  class="mx-auto w-full h-full object-cover"
+                />
+                <div class="overlay portfolio_hover">
+                  <a href="#" class="portfolio_link">
+                    <i class="fa-solid fa-link"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="lower">
+              <div class="image relative group">
+                <img
+                  src="../img/portfolio_8.jpg"
+                  alt="image"
+                  class="mx-auto w-full h-full object-cover"
+                />
+                <div class="overlay portfolio_hover">
+                  <a href="#" class="portfolio_link">
+                    <i class="fa-solid fa-link"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- item end -->
+        </div>
+      </div>
+    </section>
+    <!-- ==================================
+               PORTFOLIO PART END
+      ============================== -->
+    <!-- ==================================
+               TEAM PART START 
+      ============================== -->
+    <section id="team" class="py-[30px]">
+      <div class="container mx-auto">
+        <div class="heading">
+          <h3 class="section_heading mb-[30px]">Our Team</h3>
+        </div>
+        <div
+          class="team_container grid grid-cols-2 sm:grid-cols-4 gap-y-20 sm:gap-y-0 gap-5 px-5 sm:px-0"
+        >
+          <!-- member star  -->
+          <div class="member_1">
+            <picture class="relative max-w-[220px] max-h-[270px]">
+              <img
+                src="../img/team_1.jpg"
+                alt="image"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="member_overlay absolute right-0 top-0 w-[30%] h-full bg-black/60 hidden"
+              >
+                <div
+                  class="links w-full h-full flex items-center justify-center flex-col gap-[15px]"
+                >
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-pinterest-p"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-twitter"></i>
+                  </a>
+                </div>
+              </div>
+            </picture>
+            <div class="intro text-center pt-2 shadow-xl">
+              <h3
+                class="font-Oswald font-[500] text-[18px] leading-[24px] text-myBlack"
+              >
+                Sakeba Aney
+              </h3>
+              <p
+                class="font-Oswald font-[400] text-[14px] leading-[24px] text-myGray"
+              >
+                Web Designer
+              </p>
+            </div>
+          </div>
+          <!-- member end -->
+          <!-- member star  -->
+          <div class="member_2">
+            <picture class="relative max-w-[220px] max-h-[270px]">
+              <img
+                src="../img/team_2.jpg"
+                alt="image"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="member_overlay_2 absolute right-0 top-0 w-[30%] h-full bg-black/60 hidden"
+              >
+                <div
+                  class="links w-full h-full flex items-center justify-center flex-col gap-[15px]"
+                >
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-pinterest-p"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-twitter"></i>
+                  </a>
+                </div>
+              </div>
+            </picture>
+            <div class="intro text-center pt-2 shadow-xl">
+              <h3
+                class="font-Oswald font-[500] text-[18px] leading-[24px] text-myBlack"
+              >
+                Sakeba Aney
+              </h3>
+              <p
+                class="font-Oswald font-[400] text-[14px] leading-[24px] text-myGray"
+              >
+                Web Designer
+              </p>
+            </div>
+          </div>
+          <!-- member end -->
+          <!-- member star  -->
+          <div class="member_3">
+            <picture class="relative max-w-[220px] max-h-[270px]">
+              <img
+                src="../img/team_3.jpg"
+                alt="image"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="member_overlay_3 absolute right-0 top-0 w-[30%] h-full bg-black/60 hidden"
+              >
+                <div
+                  class="links w-full h-full flex items-center justify-center flex-col gap-[15px]"
+                >
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-pinterest-p"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-twitter"></i>
+                  </a>
+                </div>
+              </div>
+            </picture>
+            <div class="intro text-center pt-2 shadow-xl">
+              <h3
+                class="font-Oswald font-[500] text-[18px] leading-[24px] text-myBlack"
+              >
+                Sakeba Aney
+              </h3>
+              <p
+                class="font-Oswald font-[400] text-[14px] leading-[24px] text-myGray"
+              >
+                Web Designer
+              </p>
+            </div>
+          </div>
+          <!-- member end -->
+          <!-- member star  -->
+          <div class="member_4">
+            <picture class="relative max-w-[220px] max-h-[270px]">
+              <img
+                src="../img/team_4.jpg"
+                alt="image"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="member_overlay_4 absolute right-0 top-0 w-[30%] h-full bg-black/60 hidden"
+              >
+                <div
+                  class="links w-full h-full flex items-center justify-center flex-col gap-[15px]"
+                >
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-pinterest-p"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="h-[40px] w-[40px] border border-white flex items-center justify-center rounded-full text-myWhite hover:bg-myBlue_light hover:border-myBlue_light duration-500"
+                  >
+                    <i class="fa-brands fa-twitter"></i>
+                  </a>
+                </div>
+              </div>
+            </picture>
+            <div class="intro text-center pt-2 shadow-xl">
+              <h3
+                class="font-Oswald font-[500] text-[18px] leading-[24px] text-myBlack"
+              >
+                Sakeba Aney
+              </h3>
+              <p
+                class="font-Oswald font-[400] text-[14px] leading-[24px] text-myGray"
+              >
+                Web Designer
+              </p>
+            </div>
+          </div>
+          <!-- member end -->
+        </div>
+      </div>
+    </section>
+    <!-- ==================================
+               TEAM PART END
+      ============================== -->
+    <!-- ==================================
+               TESTIMONIAL PART START 
+      ============================== -->
+    <section id="testimonial" class="pt-[60px] pb-[30px] scroll-mt-[130px]">
+      <div class="container mx-auto">
+        <div class="heading pb-[30px]">
+          <h3 class="section_heading">Testimonial</h3>
+        </div>
+        <div class="testimonial_container grid sm:grid-cols-2 gap-5">
+          <!-- items start  -->
+          <div class="item text-center space-y-[35px]">
+            <picture>
+              <img src="../img/testimonial_1.png" alt="" class="mx-auto" />
+            </picture>
+            <div class="description bg-myPink p-5 relative">
+              <h3 class="section_heading after:hidden max-w-none uppercase">
+                Shahen Alam
+              </h3>
+              <div class="reviews text-myBlue_light py-[5px]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
+              </div>
+              <span
+                class="section_heading after:hidden max-w-none text-[13px] text-myGray"
+                >Chairman</span
+              >
+              <p
+                class="section_heading after:hidden text-[13px] leading-[24px] max-w-[450px] text-myGray pt-2"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <div
+                class="square h-[30px] w-[30px] bg-myPink absolute top-[-6%] left-[50%] translate-x-[-50%] rotate-[45deg]"
+              ></div>
+            </div>
+          </div>
+          <!-- items end -->
+          <!-- items start  -->
+          <div class="item text-center space-y-[35px]">
+            <picture>
+              <img src="../img/testimonial_2.png" alt="" class="mx-auto" />
+            </picture>
+            <div class="description bg-myPink p-5 relative">
+              <h3 class="section_heading after:hidden max-w-none uppercase">
+                Mahadi Tahsan
+              </h3>
+              <div class="reviews text-myBlue_light py-[5px]">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half"></i>
+              </div>
+              <span
+                class="section_heading after:hidden max-w-none text-[13px] text-myGray"
+                >Exicutive Director</span
+              >
+              <p
+                class="section_heading after:hidden text-[13px] leading-[24px] max-w-[450px] text-myGray pt-2"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat.
+              </p>
+              <div
+                class="square h-[30px] w-[30px] bg-myPink absolute top-[-6%] left-[50%] translate-x-[-50%] rotate-[45deg]"
+              ></div>
+            </div>
+          </div>
+          <!-- items end -->
+        </div>
+      </div>
+    </section>
+    <!-- ==================================
+               TESTIMONIAL PART END
+      ============================== -->
+    <!-- ==================================
+               FOOTER PART START 
+      ============================== -->
+    <footer id="footer" class="bg-myBlack pt-[30px] mt-[30px]">
+      <div class="container mx-auto pb-5">
+        <div class="footer_container grid md:grid-cols-4">
+          <!-- item start  -->
+          <div class="item">
+            <div class="logo pb-10">
+              <a href="#">
+                <img src="../img/logo.png" alt="logo" class="mx-auto md:mx-0" />
+              </a>
+            </div>
+            <div class="information space-y-[20px] lg:space-y-[35px]">
+              <p
+                class="text-myWhite font-[500] text-[10px] lg:text-[13px] leading-[24px] max-w-[220px] mx-auto md:mx-0 text-center md:text-left"
+              >
+                Lorem ipsum dolor sit amet, conser adipisicing elit, sed do
+                eiumod apor incididunt ut labore et dolore magna aliqua.
+              </p>
+              <p
+                class="text-myWhite font-[500] text-[10px] lg:text-[13px] leading-[24px] max-w-[220px] mx-auto md:mx-0 text-center md:text-left"
+              >
+                Lorem ipsum dolor sit amet, conser adipisicing elit.
+              </p>
+            </div>
+          </div>
+          <!-- item end -->
+          <!-- item start  -->
+          <div class="item pt-5 md:pt-0 text-center md:text-left">
+            <div class="heading pb-1 md:pb-10">
+              <h3 class="footer_heading text-center md:text-left">
+                Contact Us
+              </h3>
+            </div>
+            <div class="information space-y-[20px]">
+              <div
+                class="contact flex space-x-[10px] items-center flex-col md:flex-row"
+              >
+                <i
+                  class="fa-solid fa-phone bg-myBlue_light text-myWhite flex items-center justify-center rounded-full h-[35px] w-[35px]"
+                ></i>
+                <div class="numbers">
+                  <p class="text-myWhite text-[10px] lg:text-[13px]">
+                    +334 1234 5987
+                  </p>
+                  <p class="text-myWhite text-[10px] lg:text-[13px]">
+                    +334 9876 2354
+                  </p>
+                </div>
+              </div>
+              <div
+                class="contact flex space-x-[10px] items-center flex-col md:flex-row"
+              >
+                <i
+                  class="fa-solid fa-envelope bg-myBlue_light text-myWhite flex items-center justify-center rounded-full h-[35px] w-[35px]"
+                ></i>
+                <div class="numbers">
+                  <p class="text-myWhite text-[10px] lg:text-[13px]">
+                    beatlsinfo@gmail.com
+                  </p>
+                  <p class="text-myWhite text-[10px] lg:text-[13px]">
+                    informationbeatls@mail.com
+                  </p>
+                </div>
+              </div>
+              <div
+                class="contact flex space-x-[10px] items-center flex-col md:flex-row"
+              >
+                <i
+                  class="fa-solid fa-earth-america bg-myBlue_light text-myWhite flex items-center justify-center rounded-full h-[35px] w-[35px]"
+                ></i>
+                <div class="numbers">
+                  <p class="text-myWhite text-[10px] lg:text-[13px]">
+                    www.beatlsinformation.com
+                  </p>
+                  <p class="text-myWhite text-[10px] lg:text-[13px]">
+                    www.informationbeatls.com
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- item end -->
+          <!-- item start  -->
+          <div class="item pt-5 md:pt-0">
+            <div class="heading pb-0 md:pb-10 text-center md:text-left">
+              <h3 class="footer_heading">Important Links</h3>
+            </div>
+            <div
+              class="links flex space-x-7 justify-center md:justify-start pt-1 md:pt-0"
+            >
+              <div
+                class="links_1 flex flex-col text-myWhite gap-y-[20px] text-center md:text-left"
+              >
+                <a
+                  href="#"
+                  class="hover:text-myBlue_light duration-500 text-[10px] lg:text-[13px]"
+                >
+                  Home
+                </a>
+                <a
+                  href="#"
+                  class="hover:text-myBlue_light duration-500 text-[10px] lg:text-[13px]"
+                >
+                  About Us
+                </a>
+                <a
+                  href="#"
+                  class="hover:text-myBlue_light duration-500 text-[10px] lg:text-[13px]"
+                >
+                  portfolio
+                </a>
+                <a
+                  href="#"
+                  class="hover:text-myBlue_light duration-500 text-[10px] lg:text-[13px]"
+                >
+                  Our Team
+                </a>
+                <a
+                  href="#"
+                  class="hover:text-myBlue_light duration-500 text-[10px] lg:text-[13px]"
+                >
+                  Blog
+                </a>
+              </div>
+              <div
+                class="links_2 flex flex-col text-myWhite gap-y-[20px] text-center md:text-left"
+              >
+                <a
+                  href="#"
+                  class="hover:text-myBlue_light duration-500 text-[10px] lg:text-[13px]"
+                  >Pricing
+                </a>
+                <a
+                  href="#"
+                  class="hover:text-myBlue_light duration-500 text-[10px] lg:text-[13px]"
+                  >Blog</a
+                >
+                <a
+                  href="#"
+                  class="hover:text-myBlue_light duration-500 text-[10px] lg:text-[13px]"
+                  >Feedback</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- item end -->
+          <!-- item start  -->
+          <div class="item">
+            <div class="heading pb-1 md:pb-10">
+              <h3 class="footer_heading text-center md:text-left pt-5 md:pt-0">
+                Flickr Photos
+              </h3>
+            </div>
+            <div class="all_pics space-y-[15px]">
+              <div class="flex gap-x-[15px] justify-center md:justify-start">
+                <picture><img src="../img/footer_1.jpg" alt="image" /></picture>
+                <picture><img src="../img/footer_2.jpg" alt="image" /></picture>
+                <picture><img src="../img/footer_3.jpg" alt="image" /></picture>
+              </div>
+              <div class="flex gap-x-[15px] justify-center md:justify-start">
+                <picture><img src="../img/footer_4.jpg" alt="image" /></picture>
+                <picture><img src="../img/footer_5.jpg" alt="image" /></picture>
+                <picture><img src="../img/footer_6.jpg" alt="image" /></picture>
+              </div>
+            </div>
+          </div>
+          <!-- item end -->
+        </div>
+      </div>
+
+      <div class="bg-myGray py-5">
+        <div class="container mx-auto text-center">
+          <p class="text-myWhite">
+            Copyright <i class="fa-regular fa-copyright"></i> 2017. All rights
+            reserved by
+            <a href="index.html" class="text-myBlue_light">BEATLS</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- ==================================
+               FOOTER PART END
+      ============================== -->
+    <!-- ==================================
+               MOVE_TOP PART START 
+      ============================== -->
+    <div
+      class="move_top h-10 w-10 bg-myBlue rounded-full fixed bottom-0 right-0 group opacity-0 invisible"
+    >
+      <a href="#" class="w-full h-full flex items-center justify-center">
+        <i class="fa-solid fa-up-long group-hover:scale-150 duration-500"></i>
+      </a>
+    </div>
+    <!-- ==================================
+               MOVE_TOP PART END
+      ============================== -->
+
+    <!-- JQUERY CDN  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <!-- MY JS  -->
+    <script src="./JS/script.js"></script>
+  </body>
+</html>
